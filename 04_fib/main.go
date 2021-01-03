@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dissipative/rosalind/common"
+	"github.com/dissipative/go-rosalind/common"
 )
 
 func main() {
