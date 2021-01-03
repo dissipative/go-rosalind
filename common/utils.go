@@ -7,6 +7,13 @@ import (
 	"os"
 )
 
+const (
+	A = 'A'
+	T = 'T'
+	G = 'G'
+	C = 'C'
+)
+
 // ReadInput reads filename into slice of strings
 func ReadInput(filename string) (output []string, err error) {
 	file, err := os.Open(filename)

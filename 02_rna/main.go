@@ -14,8 +14,10 @@ func main() {
 	}
 
 	for i, seq := range sequences {
-		rna := strings.ReplaceAll(seq, "T", "U")
-
-		log.Printf("sequence %d: %s", i, rna)
+		log.Printf("sequence %d: %s", i, rna(seq))
 	}
+}
+
+func rna(seq string) string {
+	return strings.ReplaceAll(seq, "T", "U")
 }

@@ -7,13 +7,6 @@ import (
 	"github.com/dissipative/rosalind/common"
 )
 
-const (
-	a = "A"
-	t = "T"
-	g = "G"
-	c = "C"
-)
-
 func main() {
 	sequences, err := common.ReadInput("rosalind_dna.txt")
 	if err != nil {
@@ -21,12 +14,16 @@ func main() {
 	}
 
 	for i, seq := range sequences {
-		countA := strings.Count(seq, a)
-		countT := strings.Count(seq, t)
-		countG := strings.Count(seq, g)
-		countC := strings.Count(seq, c)
-
+		countA, countC, countG, countT := countDNANucleotides(seq)
 		log.Printf("sequence %d: %d %d %d %d", i, countA, countC, countG, countT)
 	}
+}
 
+func countDNANucleotides(seq string) (countA, countC, countG, countT int) {
+	countA = strings.Count(seq, string(common.A))
+	countT = strings.Count(seq, string(common.T))
+	countG = strings.Count(seq, string(common.G))
+	countC = strings.Count(seq, string(common.C))
+
+	return
 }
