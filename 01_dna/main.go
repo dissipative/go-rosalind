@@ -1,11 +1,10 @@
 package main
 
 import (
-	"bufio"
-	"io"
 	"log"
-	"os"
 	"strings"
+
+	"github.com/dissipative/rosalind/common"
 )
 
 const (
@@ -16,7 +15,7 @@ const (
 )
 
 func main() {
-	sequences, err := readInput("rosalind_dna.txt")
+	sequences, err := common.ReadInput("rosalind_dna.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -30,34 +29,4 @@ func main() {
 		log.Printf("sequence %d: %d %d %d %d", i, countA, countC, countG, countT)
 	}
 
-}
-
-func readInput(filename string) (output []string, err error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	reader := bufio.NewReader(file)
-
-	for {
-		line, err := reader.ReadString('\n')
-		if err != nil && err != io.EOF {
-			break
-		}
-
-		if line != "" {
-			output = append(output, line)
-		}
-
-		if err != nil {
-			break
-		}
-	}
-	if err != io.EOF {
-		return
-	}
-
-	return output, nil
 }
