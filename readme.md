@@ -1,5 +1,5 @@
 # What is it
 
-My Golang solutions of bioinfomratics tasks from Rosalind.
+My Golang solutions of bioinformatics tasks from Rosalind.
 
 > http://rosalind.info/problems
